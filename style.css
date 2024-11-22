@@ -1,0 +1,17 @@
+html {
+    font-family: sans-serif;
+}
+body {
+    width: 50%;
+    max-width: 1000px;
+    min-width: 500px;
+    margin:0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+p {
+    font-size: 25px;
+}
+
