@@ -28,6 +28,7 @@ function getHumanChoice () {
         choice = prompt("Enter guess: rock, paper, or scissors");
         humanChoice = choice.toLowerCase();
     }
+
     return humanChoice;
 }
 
@@ -99,3 +100,4 @@ function playGame(func) {
 
 playGame(playRound);
 declareResults();
+
