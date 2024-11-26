@@ -1,3 +1,7 @@
+window.setTimeout(function() {
+
+    // your js code goes here
+    alert("Press F12 to play this game on the console");
 /* write a function that uses the math.random method to generate string of 
 either rock, paper, or scissors depending on the random number generated*/
 function getComputerhumanChoice() {
@@ -105,3 +109,6 @@ function playGame(func) {
 playGame(playRound);
 declareResults();
 
+
+    
+    }, 500);
