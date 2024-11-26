@@ -1,6 +1,6 @@
 /* write a function that uses the math.random method to generate string of 
 either rock, paper, or scissors depending on the random number generated*/
-function getComputerChoice() {
+function getComputerhumanChoice() {
     let numberGenerated = Math.random();
     let result;
     if (numberGenerated < 1 && numberGenerated >= 0.6) {
@@ -13,20 +13,24 @@ function getComputerChoice() {
     return result;
 }
 
-/* write a function that takes human choice and returns it. The choice has to be 
+/* write a function that takes human humanChoice and returns it. The humanChoice has to be 
 made case-insensitive. */
-function getHumanChoice () {
-    let choice = prompt("Enter guess: rock, paper, or scissors");
+function gethumanChoice () {
+    let humanChoice = prompt("Enter guess: rock, paper, or scissors");
+    if (humanChoice == null){
+        console.log("You canceled the game");
+        process.exit(0);
+    } 
     //make it case-insensitive by making all characters lowercase
-    let humanChoice = choice.toLowerCase();
-    //create a check for invalid choices
+    humanChoice = humanChoice.toLowerCase();
+    //create a check for invalid humanChoices
     while (humanChoice !== "rock" &&
            humanChoice !== "paper" &&
            humanChoice !== "scissors" 
     ) {
-        alert("Enter a valid choice");
-        choice = prompt("Enter guess: rock, paper, or scissors");
-        humanChoice = choice.toLowerCase();
+        alert("Enter a valid humanChoice");
+        humanChoice = prompt("Enter guess: rock, paper, or scissors");
+        humanChoice = humanChoice.toLowerCase();
     }
 
     return humanChoice;
@@ -36,31 +40,31 @@ function getHumanChoice () {
 let humanScore = 0;
 let computerScore = 0;
 
-/* write a function that takes the human and computer player choices as arguments, 
+/* write a function that takes the human and computer player humanChoices as arguments, 
 plays a single round, increments the round winner’s score and logs a winner 
 announcement.*/
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice === "rock" && computerChoice == "paper") {
+function playRound(humanChoice, computerhumanChoice) {
+    if (humanChoice === "rock" && computerhumanChoice == "paper") {
         console.log("You lose! paper beats rock")
         computerScore++;
         console.log(`The score is ${humanScore}:${computerScore}`);
-    } else if (humanChoice === "rock" && computerChoice == "scissors") {
+    } else if (humanChoice === "rock" && computerhumanChoice == "scissors") {
         console.log("You win! rock beats scissors")
         humanScore++;
         console.log(`The score is ${humanScore}:${computerScore}`);
-    } else if (humanChoice === "paper" && computerChoice == "rock") {
+    } else if (humanChoice === "paper" && computerhumanChoice == "rock") {
         console.log("You win! paper beats rock")
         humanScore++;
         console.log(`The score is ${humanScore}:${computerScore}`);
-    } else if (humanChoice === "paper" && computerChoice == "scissors") {
+    } else if (humanChoice === "paper" && computerhumanChoice == "scissors") {
         console.log("You lose! scissors beats paper")
         computerScore++;
         console.log(`The score is ${humanScore}:${computerScore}`);
-    } else if (humanChoice === "scissors" && computerChoice == "rock") {
+    } else if (humanChoice === "scissors" && computerhumanChoice == "rock") {
         console.log("You lose! rock beats scissors")
         computerScore++;
         console.log(`The score is ${humanScore}:${computerScore}`);
-    } else if (humanChoice === "scissors" && computerChoice == "paper") {
+    } else if (humanChoice === "scissors" && computerhumanChoice == "paper") {
         console.log("You win! scissors beats paper")
         humanScore++;
         console.log(`The score is ${humanScore}:${computerScore}`);
@@ -81,7 +85,7 @@ function declareResults() {
     }
 }
 
-/* call the choice functions and initialize them to two variable constants to take
+/* call the humanChoice functions and initialize them to two variable constants to take
  the guesses. The variables are now declared in the playGame function. */
 const humanSelection = undefined;
 const computerSelection = undefined;
@@ -92,8 +96,8 @@ const computerSelection = undefined;
 //write a function named playGame that calls playRound to play 5 rounds
 function playGame(func) {
     for (let i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
+        const humanSelection = gethumanChoice();
+        const computerSelection = getComputerhumanChoice();
         func(humanSelection, computerSelection);
     }
 }
